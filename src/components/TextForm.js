@@ -2,15 +2,15 @@ import React, {useState} from 'react'
 
 
 
-
 export default function TextForm(props) {
 
     
 
     function WordCount() {
-        return text.split(' ')
-               .filter(function(n) { return n !== '' })
+        return text.split(/\s+/)
+               .filter(function(n) { return n !== ''})
                .length;
+        
    }
 
 
@@ -82,6 +82,16 @@ export default function TextForm(props) {
     
         }
 
+    const handleCopy = () =>{
+        
+        
+       
+            navigator.clipboard.writeText(text)
+            props.showAlert('Copied to clipboard', 'success')
+        
+    
+        }
+
     
     
     
@@ -94,15 +104,16 @@ export default function TextForm(props) {
             <h1>{props.heading}</h1>
             <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor: props.mode === 'dark'?'#0f172a':'white', color: props.mode === 'dark'?'white':'black'}}></textarea>
         </div>
-            <button className="btn btn-primary mx-1 " onClick={handleUpClick}>Convert to UpperCase</button>
-            <button className="btn btn-primary mx-1 " onClick={handleLoClick}>Convert to LowerCase</button>
-            <button className="btn btn-primary mx-1 " onClick={handleSaveClick}>Save Text for Future Use</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1 " onClick={handleUpClick}>Convert to UpperCase</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1 " onClick={handleLoClick}>Convert to LowerCase</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1 " onClick={handleCopy}>Copy</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1 " onClick={handleSaveClick}>Save Text for Future Use</button>
 
 
 
-            <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
-            <button className="btn btn-primary mx-1" onClick={handlePreviewClick}>View Saved Text</button>
-            <button className="btn btn-primary mx-1" onClick={handleClearPreviewClick}>Clear Saved Text</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1" onClick={handleClearClick}>Clear Text</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1" onClick={handlePreviewClick}>View Saved Text</button>
+            <button disabled={text.length===0} className="btn btn-dark mx-1" onClick={handleClearPreviewClick}>Clear Saved Text</button>
         </div>
         <div className="container my-3" >
             <h2> Your Text Summary</h2>

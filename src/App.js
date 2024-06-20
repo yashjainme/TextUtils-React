@@ -1,21 +1,12 @@
-// import logo from './logo.svg';
+
 import './App.css';
 
 import React, {useState} from 'react'
 
-// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
 
-
-
-// let name = "<b>Yash</b>"
 function App() {
 
 
@@ -42,10 +33,11 @@ function App() {
 
 
 
-let [mode, setmode] = useState('light')
+const [mode, setmode] = useState('light')
 
-  const [toggleText, settoggleText] = useState("Enable Dark Mode")
+const [toggleText, settoggleText] = useState("Enable Dark Mode")
 
+const [icon, seticon] = useState('sun')
 
 
 
@@ -96,14 +88,14 @@ const toggleGreen = () =>{
 
 
 
-
   const toggleMode = () =>{
-    if(mode === 'dark'){
+    if(mode === 'dark' && icon === 'moon'){
       setmode('light')
       settoggleText("Enable Dark Mode")
       showAlert("Light Mode Enabled", "success")
       document.body.style.backgroundColor = "white"
       document.body.style.color = "black"
+      seticon('sun')
     }
     else{
       setmode('dark')
@@ -111,6 +103,7 @@ const toggleGreen = () =>{
       showAlert("Dark Mode Enabled", "success")
       document.body.style.backgroundColor = "#0f172a"
       document.body.style.color = "white"
+      seticon('moon')
     }
   } 
  
@@ -131,7 +124,7 @@ const toggleGreen = () =>{
    </Routes>
   </Router> */}
 
-    <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} toggleText={toggleText} toggleMode={toggleMode} toggleRed={toggleRed} toggleYellow={toggleYellow} toggleGreen={toggleGreen}/>
+    <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} icon={icon} toggleText={toggleText} toggleMode={toggleMode} toggleRed={toggleRed} toggleYellow={toggleYellow} toggleGreen={toggleGreen}/>
     <Alert alert={alert}/>
     <div className="container">
 
