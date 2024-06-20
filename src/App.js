@@ -111,18 +111,7 @@ const toggleGreen = () =>{
 
   return (
     <>
-    {/* <Router>
-   
-   
-   
-   
-   
-   
-   <Routes>   
-   <Route path="/about" element={<About />} />
-   <Route path="/" element={ <TextForm showAlert={showAlert} heading="Enter the Text to Analyze" mode={mode}/>} />
-   </Routes>
-  </Router> */}
+    
 
     <Navbar title="TextUtils" aboutText="About TextUtils" mode={mode} icon={icon} toggleText={toggleText} toggleMode={toggleMode} toggleRed={toggleRed} toggleYellow={toggleYellow} toggleGreen={toggleGreen}/>
     <Alert alert={alert}/>
