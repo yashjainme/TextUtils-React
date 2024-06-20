@@ -20,7 +20,7 @@ TextUtils is a React-based web application that allows users to analyze and mani
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/TextUtils.git
+   git clone https://github.com/yashjainme/TextUtils-React.git
    
 
 2. **Install dependencies**
